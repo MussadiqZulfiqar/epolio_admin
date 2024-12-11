@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  @apply bg-softBorder; /* Ensure font-sans is applied */
+  font-family: "Nunito", "Ubuntu", "Montserrat", "Rubik", "Nunito", "Poppins",
+    sans-serif; /* Set font stack with fallback */
+}
+
+.animationFromdowntoUp {
+  animation: openAn 0.1s forwards;
+}
+@keyframes openAn {
+  0% {
+    transform: translateY(60px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.rotateAnimation {
+  animation: rotate 0.3s forwards;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(0deg); /* Final state: rotate back to 0 degrees */
+  }
+}
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    height: 2px; /* Height of vertical scrollbar */
+    width: 2px; /* Width of horizontal scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 9999px; /* Ensure round scrollbar thumb */
+    background-image: linear-gradient(
+      to top right,
+      #8b5cf6,
+      #34d399,
+      #10b981
+    ); /* Example gradient colors */
+  }
+}
+/* Hide the arrows for number inputs in Chrome, Safari, Edge, and Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* For WebKit browsers */
+  -moz-appearance: textfield; /* For Firefox browsers */
+  appearance: none; /* Standard property for compatibility */
+  margin: 0;
+}
+
+.loader {
+  border-top-color: #f7a582;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
